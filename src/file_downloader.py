@@ -38,8 +38,10 @@ def clone_folder(navigator: Navigator, url, sub_folder=""):
     for file in data_files:
         # yield file
         download_file(navigator, file.get("download_url"), path.join(sub_folder, file.get("name")))
-        print(f"{file.get("name")} has been downloaded!")
+        # here could be a potential DB Update
+        print(f"{file.get('name')} has been downloaded!")
     for folder in data_folders:
         # yield {"folder": folder, "files": list(clone_folder(navigator, folder.get("url")))}
         clone_folder(navigator, folder.get("url"), path.join(sub_folder, folder.get("name")))
+        # here could be a potential DB Update
         
